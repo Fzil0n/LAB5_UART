@@ -118,7 +118,7 @@ int main(void)
   MX_DMA_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  UARTDMAConfig();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -324,8 +324,8 @@ void Process()
 	switch(processState)
 	{
 	case INIT:
-		sprintf((char*)text, "-----Main Menu-----\r\n");
-		HAL_UART_Transmit(&huart2, text, strlen((char*)text), 10);
+//		sprintf((char*)text, "-----Main Menu-----\r\n");
+//		HAL_UART_Transmit(&huart2, text, strlen((char*)text), 50);
 
 		if(RxBuffer[0] == '0')
 		{
@@ -335,12 +335,12 @@ void Process()
 		{
 			processState = BUTTON_STATUS;
 		}
-		else
-		{
-			sprintf((char*)text, "Not a command.\r\n");
-			HAL_UART_Transmit(&huart2, text, strlen((char*)text), 10);
-			processState = INIT;
-		}
+//		else
+//		{
+//			sprintf((char*)text, "Not a command.\r\n");
+//			HAL_UART_Transmit(&huart2, text, strlen((char*)text), 10);
+//			processState = INIT;
+//		}
 	break;
 
 	case LED_CONTROL:
